@@ -1,0 +1,35 @@
+Given a singly linked list, the task is to rearrange it in a way that all odd position nodes are together and all even positions 
+node are together
+
+Example:
+Input:
+2
+4
+1 2 3 4
+5
+1 2 3 4 5
+
+Output:
+1 3 2 4
+1 3 5 2 4
+
+Node *rearrangeEvenOdd(Node *head)
+{
+  Node* head2=head;
+  Node* temp2=head;
+  Node* fast=head->next;
+  head=head->next;
+  if(head2->next ==NULL || head2==NULL)
+   return head2;
+ 
+  while(fast!=NULL && fast->next!=NULL)
+  {
+      temp2->next=fast->next;
+      temp2=fast->next;
+      fast->next=temp2->next;
+      fast=temp2->next;
+  }
+  
+ temp2->next=head;
+ return head2;
+}

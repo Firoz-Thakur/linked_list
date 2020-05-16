@@ -32,3 +32,19 @@ struct Node* pairwise_swap(struct Node* head)
     
     return head;
 }
+using only one pointer :
+
+
+struct Node* pairwise_swap(struct Node* head)
+{
+    // your code here
+    Node* slow=head;
+    
+    while(slow!=NULL && slow->next!=NULL)
+    {
+        swap(slow->data,slow->next->data);
+        slow=slow->next->next;
+    }
+    
+    return head;
+}
